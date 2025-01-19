@@ -56,7 +56,7 @@ clock = pygame.time.Clock()
 
 
 
-icon = pygame.image.load('taskbar-icon.ico')  
+icon = pygame.image.load('icon.ico')  
 pygame.display.set_icon(icon) 
 icon = pygame.transform.scale(icon, (32, 32))
 
