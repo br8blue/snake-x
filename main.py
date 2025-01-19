@@ -4,10 +4,34 @@ import random
 
 pygame.init()
 
-pygame.mixer.init()
-pygame.mixer.music.load('main-theme.mp3')
-pygame.mixer.music.play(-1, 0.0)
 
+
+pygame.mixer.init()
+
+
+mainTheme = 'main-theme.mp3'
+anotherTheme = 'secondary-theme.mp3'
+
+
+songList = [mainTheme, anotherTheme]
+
+
+def selectRandomSong():
+    return random.choice(songList)
+
+
+def playSelectedSong(song):
+    pygame.mixer.music.load(song)
+    pygame.mixer.music.play(0, 0.0)
+
+
+selectedSong = selectRandomSong()
+
+MUSIC_END = pygame.USEREVENT + 1
+pygame.mixer.music.set_endevent(MUSIC_END)
+
+
+playSelectedSong(selectedSong)
 
 
 bite_sound = pygame.mixer.Sound('bite.mp3')
@@ -32,7 +56,7 @@ clock = pygame.time.Clock()
 
 
 
-icon = pygame.image.load('window-icon.ico')  
+icon = pygame.image.load('taskbar-icon.ico')  
 pygame.display.set_icon(icon) 
 icon = pygame.transform.scale(icon, (32, 32))
 
@@ -146,6 +170,9 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == MUSIC_END:
+            selectedSong = selectRandomSong()
+            playSelectedSong(selectedSong)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
                 snake.ydir = 1
@@ -205,4 +232,4 @@ while True:
 
     pygame.display.update() 
 
-    clock.tick(15)
+    clock.tick(12)
