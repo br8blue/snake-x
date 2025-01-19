@@ -21,8 +21,8 @@ SW, SH = info.current_w, info.current_h
 
 
 BLOCK_SIZE = 50  
-FONT = pygame.font.Font("comic-sans.ttf", BLOCK_SIZE * 2)
-FONT_SMALL = pygame.font.Font("comic-sans.ttf", 30)  
+FONT = pygame.font.Font("font.ttf", BLOCK_SIZE * 2)
+FONT_SMALL = pygame.font.Font("font.ttf", 30)  
 
 
 
