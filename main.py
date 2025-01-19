@@ -10,10 +10,10 @@ pygame.mixer.init()
 
 
 mainTheme = 'main-theme.mp3'
-anotherTheme = 'secondary-theme.mp3'
+secondaryTheme = 'secondary-theme.mp3'
+tertiaryTheme = 'tertiary-theme.mp3'
 
-
-songList = [mainTheme, anotherTheme]
+songList = [mainTheme, secondaryTheme, tertiaryTheme]
 
 
 def selectRandomSong():
@@ -63,13 +63,13 @@ icon = pygame.transform.scale(icon, (32, 32))
 
 
 
-apple_image = pygame.image.load('apple.png')  
-apple_image = pygame.transform.scale(apple_image, (BLOCK_SIZE, BLOCK_SIZE))  
+appleImage = pygame.image.load('apple.png')  
+appleImage = pygame.transform.scale(appleImage, (BLOCK_SIZE, BLOCK_SIZE))  
 
 
 
 
-death_sound = pygame.mixer.Sound('death.wav')
+deathSound = pygame.mixer.Sound('death.wav')
 
 
 
@@ -103,7 +103,7 @@ class Snake:
             self.dead = True
 
         if self.dead:
-            death_sound.play()  
+            deathSound.play()  
             self.reset()
 
         if self.head.x == apple.x and self.head.y == apple.y:
@@ -133,7 +133,7 @@ class Apple:
     
     def update(self):
 
-        screen.blit(apple_image, self.rect)
+        screen.blit(appleImage, self.rect)
 
 
 
